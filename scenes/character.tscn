@@ -1,19 +1,22 @@
 [gd_scene format=3 uid="uid://bd0l84mli7t7b"]
 
+[ext_resource type="Script" uid="uid://iit68h52l5yf" path="res://scripts/character.gd" id="1_agfs1"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vu45j"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_glpr6"]
 
-[node name="character" type="Node3D" unique_id=2141544962]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=974356290]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1103824578]
-shape = SubResource("CapsuleShape3D_vu45j")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1167113817]
-mesh = SubResource("CapsuleMesh_glpr6")
+[node name="character" type="CharacterBody3D" unique_id=408792429]
+script = ExtResource("1_agfs1")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=494395350]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.533816, 0)
+current = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1103824578]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_vu45j")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1167113817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_glpr6")
