@@ -3,15 +3,26 @@
 [ext_resource type="Script" uid="uid://bfdwaaikivqic" path="res://scripts/moose.gd" id="1_selvl"]
 [ext_resource type="Texture2D" uid="uid://dh3fvnu0svxt5" path="res://assets/icon.svg" id="2_selvl"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_selvl"]
+
 [node name="Moose" type="Node3D" unique_id=273658079]
 script = ExtResource("1_selvl")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1574550632]
-billboard = 1
+billboard = 2
 shaded = true
 texture = ExtResource("2_selvl")
 
 [node name="MooseChargeTimer" type="Timer" parent="." unique_id=1420594953]
 unique_name_in_owner = true
+
+[node name="ChargeArea" type="Area3D" parent="." unique_id=1897969873]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChargeArea" unique_id=1950049256]
+shape = SubResource("BoxShape3D_selvl")
+
+[node name="Timer" type="Timer" parent="." unique_id=599218951]
+unique_name_in_owner = true
+one_shot = true
 
 [connection signal="timeout" from="MooseChargeTimer" to="." method="_on_moose_charge_timer_timeout"]
