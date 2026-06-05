@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dagucwp3qumhf"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gv5m4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gv5m4"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gv5m4"]
+material = SubResource("StandardMaterial3D_gv5m4")
+size = Vector2(200, 200)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
+
+[sub_resource type="Sky" id="Sky_f3sb7"]
+sky_material = SubResource("ProceduralSkyMaterial_gv5m4")
+
+[sub_resource type="Environment" id="Environment_fj7yv"]
+sky = SubResource("Sky_f3sb7")
+ambient_light_source = 3
+ambient_light_color = Color(0.14589137, 0.22369477, 1, 1)
+volumetric_fog_enabled = true
+
+[node name="world" type="Node3D" unique_id=1786259902]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1451842041]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=521135744]
+shape = SubResource("WorldBoundaryShape3D_gv5m4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=869459334]
+mesh = SubResource("PlaneMesh_gv5m4")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1654342572]
+environment = SubResource("Environment_fj7yv")
