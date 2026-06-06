@@ -7,6 +7,7 @@
 
 [node name="Moose" type="Node3D" unique_id=273658079]
 script = ExtResource("1_selvl")
+charge_time = 2.0
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1574550632]
 billboard = 2
@@ -21,7 +22,7 @@ unique_name_in_owner = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChargeArea" unique_id=1950049256]
 shape = SubResource("BoxShape3D_selvl")
 
-[node name="Timer" type="Timer" parent="." unique_id=599218951]
+[node name="MooseWarningTimer" type="Timer" parent="." unique_id=599218951]
 unique_name_in_owner = true
 one_shot = true
 
