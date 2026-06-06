@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://36br8yfpbi0r"]
+
+[ext_resource type="Script" uid="uid://c2hwetjoej1pw" path="res://scripts/win.gd" id="1_r4oei"]
+
+[node name="Win" type="Control" unique_id=728874079]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r4oei")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=621096237]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1665618296]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=37377065]
+layout_mode = 2
+text = "u win"
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=480192371]
+layout_mode = 2
+text = "Main Menu"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
