@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://c4atbox6duvyv"]
+
+[ext_resource type="Script" uid="uid://k3fqq3fbqj2j" path="res://scripts/moose_mark.gd" id="1_1giii"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_t6mo5"]
+height = 3.1088867
+radius = 3.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_t6mo5"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1giii"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 3.0
+
+[sub_resource type="PrismMesh" id="PrismMesh_5f3yb"]
+size = Vector3(1, 1, 0.08)
+
+[sub_resource type="Animation" id="Animation_1giii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:omni_range")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [29.95]
+}
+
+[sub_resource type="Animation" id="Animation_5f3yb"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:omni_range")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.58, 1.13, 1.45, 1.61, 1.9, 2.41, 2.93),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [29.95, 16.66, 31.59, 25.523, 39.1, 14.975, 43.5, 29.95]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_td2m5"]
+_data = {
+&"RESET": SubResource("Animation_1giii"),
+&"idle": SubResource("Animation_5f3yb")
+}
+
+[node name="MooseMark" type="Node3D" unique_id=1550959728]
+script = ExtResource("1_1giii")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1616118549]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=287059553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55444336, 0)
+shape = SubResource("CylinderShape3D_t6mo5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2067682467]
+mesh = SubResource("CapsuleMesh_t6mo5")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1490395505]
+light_color = Color(0.9696974, 0.69255304, 0.63697296, 1)
+light_volumetric_fog_energy = 5.681
+omni_range = 29.95
+
+[node name="Sign" type="Node3D" parent="." unique_id=860452064]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3856766, -1.029603)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sign" unique_id=492553570]
+mesh = SubResource("CylinderMesh_1giii")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Sign" unique_id=156852606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7847126, -0.15050828)
+mesh = SubResource("PrismMesh_5f3yb")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Sign" unique_id=830685328]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7847126, 0.1271522)
+mesh = SubResource("PrismMesh_5f3yb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2135988269]
+libraries/ = SubResource("AnimationLibrary_td2m5")
+autoplay = &"idle"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
