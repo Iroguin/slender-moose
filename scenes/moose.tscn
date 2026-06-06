@@ -17,7 +17,8 @@
 [ext_resource type="AudioStream" uid="uid://drca87m8xhdoc" path="res://sounds/moose-09.ogg" id="15_yvmbc"]
 [ext_resource type="AudioStream" uid="uid://cwbb8wgapoj53" path="res://sounds/moose-10.ogg" id="16_20wtp"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_selvl"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8ax05"]
+height = 1.315
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lbh5r"]
 streams_count = 14
@@ -48,13 +49,16 @@ texture = ExtResource("2_selvl")
 
 [node name="MooseChargeTimer" type="Timer" parent="." unique_id=1420594953]
 unique_name_in_owner = true
+wait_time = 10.238
 autostart = true
 
 [node name="ChargeArea" type="Area3D" parent="." unique_id=1897969873]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChargeArea" unique_id=1950049256]
-shape = SubResource("BoxShape3D_selvl")
+shape = SubResource("CylinderShape3D_8ax05")
 
 [node name="MooseWarningTimer" type="Timer" parent="." unique_id=599218951]
 unique_name_in_owner = true
@@ -66,3 +70,4 @@ stream = SubResource("AudioStreamRandomizer_lbh5r")
 bus = &"Moose"
 
 [connection signal="timeout" from="MooseChargeTimer" to="." method="_on_moose_charge_timer_timeout"]
+[connection signal="body_entered" from="ChargeArea" to="." method="_on_charge_area_body_entered"]

@@ -1,6 +1,8 @@
 extends Node3D
 
 
+signal hit_player
+
 enum States{IDLE, NOTICE, CHARGE}
 
 @export var player: Player
@@ -44,3 +46,10 @@ func _on_moose_charge_timer_timeout() -> void:
 		var charge_pos := global_position + charge_dir * (charge_distance * 2)
 		moose_charge(charge_pos)
 	%MooseChargeTimer.start(randf_range(charge_delay_min, charge_delay_max))
+
+
+func _on_charge_area_body_entered(body: Node3D) -> void:
+	if not body is Player:
+		return
+	
+	hit_player.emit()
