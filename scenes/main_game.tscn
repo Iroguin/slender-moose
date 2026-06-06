@@ -2,9 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://dagucwp3qumhf" path="res://scenes/world.tscn" id="1_72e8q"]
 [ext_resource type="PackedScene" uid="uid://bd0l84mli7t7b" path="res://scenes/character.tscn" id="2_d2op2"]
+[ext_resource type="PackedScene" uid="uid://w3uugctlb27g" path="res://scenes/moose.tscn" id="3_d2op2"]
 
 [node name="main_game" type="Node3D" unique_id=979090175]
 
 [node name="world" parent="." unique_id=1786259902 instance=ExtResource("1_72e8q")]
 
 [node name="character" parent="." unique_id=2141544962 instance=ExtResource("2_d2op2")]
+
+[node name="Moose" parent="." unique_id=273658079 node_paths=PackedStringArray("player") instance=ExtResource("3_d2op2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.249, 0, -37.664)
+player = NodePath("../character")
+charge_time = 5.0
+charge_delay_max = 10.0

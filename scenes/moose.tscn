@@ -10,14 +10,17 @@ script = ExtResource("1_selvl")
 charge_time = 2.0
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1574550632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 billboard = 2
 shaded = true
 texture = ExtResource("2_selvl")
 
 [node name="MooseChargeTimer" type="Timer" parent="." unique_id=1420594953]
 unique_name_in_owner = true
+autostart = true
 
 [node name="ChargeArea" type="Area3D" parent="." unique_id=1897969873]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChargeArea" unique_id=1950049256]
 shape = SubResource("BoxShape3D_selvl")
