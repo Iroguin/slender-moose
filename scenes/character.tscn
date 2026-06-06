@@ -1,6 +1,34 @@
 [gd_scene format=3 uid="uid://bd0l84mli7t7b"]
 
 [ext_resource type="Script" uid="uid://iit68h52l5yf" path="res://scripts/character.gd" id="1_agfs1"]
+[ext_resource type="Shader" uid="uid://ybfk43hcfsby" path="res://shaders/snowfall_frost.gdshader" id="2_snowfx"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_snowfx"]
+size = Vector2(2, 2)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_snow"]
+noise_type = 0
+frequency = 0.05
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_snow"]
+width = 128
+height = 128
+depth = 128
+noise = SubResource("FastNoiseLite_snow")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_snowfx"]
+render_priority = 100
+shader = ExtResource("2_snowfx")
+shader_parameter/noise_3D = SubResource("NoiseTexture3D_snow")
+shader_parameter/snow_color = Color(0.79, 0.87, 0.95, 1)
+shader_parameter/frost_amount = 0.150000007125
+shader_parameter/frost_fade = 0.6
+shader_parameter/frost_brightness = 0.75
+shader_parameter/snow_density = 0.93600001838093
+shader_parameter/snow_velocity = Vector3(0.2, -0.3, 0.2)
+shader_parameter/snow_near_clip = 0.9825
+shader_parameter/snow_far_clip = 0.9975
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vu45j"]
 
@@ -13,6 +41,14 @@ script = ExtResource("1_agfs1")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=494395350]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.533816, 0)
 current = true
+
+[node name="SnowEffect" type="MeshInstance3D" parent="Camera3D" unique_id=494395351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+cast_shadow = 0
+extra_cull_margin = 16384.0
+custom_aabb = AABB(-100000, -100000, -100000, 200000, 200000, 200000)
+mesh = SubResource("QuadMesh_snowfx")
+surface_material_override/0 = SubResource("ShaderMaterial_snowfx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1103824578]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
