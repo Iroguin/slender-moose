@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bd0l84mli7t7b" path="res://scenes/character.tscn" id="2_d2op2"]
 [ext_resource type="PackedScene" uid="uid://w3uugctlb27g" path="res://scenes/moose.tscn" id="3_d2op2"]
 [ext_resource type="PackedScene" uid="uid://xalnhj5r5t8" path="res://scenes/pause_menu.tscn" id="4_pausemenu"]
-[ext_resource type="AudioStream" uid="uid://c52k736owoj44" path="res://sounds/532301__widgetstudios__night-woods.wav" id="6_ygxny"]
+[ext_resource type="AudioStream" uid="uid://bsrot3ddc1j7m" path="res://sounds/532301__widgetstudios__night-woods.mp3" id="6_ygxny"]
 
 [node name="main_game" type="Node3D" unique_id=979090175]
 script = ExtResource("1_ipu61")
