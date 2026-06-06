@@ -62,6 +62,7 @@ _shader_parameters = {
 &"world_noise_scale": null
 }
 world_background = 2
+show_instancer_grid = true
 
 [node name="world" type="Node3D" unique_id=1786259902]
 
@@ -72,5 +73,6 @@ environment = SubResource("Environment_fj7yv")
 data_directory = "res://data"
 material = SubResource("Terrain3DMaterial_4wyf3")
 assets = ExtResource("1_snowassets")
+show_instancer_grid = true
 top_level = true
 metadata/_edit_lock_ = true
