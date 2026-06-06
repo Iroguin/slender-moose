@@ -27,6 +27,7 @@ func _process(_delta: float) -> void:
 func moose_charge(where: Vector3):
 	var charge_tween := get_tree().create_tween()
 	where = Vector3(where.x, 0, where.z)
+	charge_tween.set_trans(Tween.TRANS_EXPO)
 	charge_tween.tween_property(self, "global_position", where, charge_time)
 
 
