@@ -1,7 +1,17 @@
 [gd_resource type="Terrain3DAssets" format=3 uid="uid://dckytk7e43frc"]
 
+[ext_resource type="PackedScene" uid="uid://jkgcia8yg70y" path="res://assets/trees/models/Spruce1.glb" id="1_nsrxk"]
 [ext_resource type="Texture2D" uid="uid://donato7yuyffw" path="res://assets/textures/snow_alb_ht.png" id="1_snowalb"]
+[ext_resource type="PackedScene" uid="uid://dgarls13nqlvs" path="res://assets/trees/models/Spruce2.glb" id="2_inkgg"]
 [ext_resource type="Texture2D" uid="uid://ccb3i4dst5m5q" path="res://assets/textures/snow_nrm_rgh.png" id="2_snownrm"]
+[ext_resource type="PackedScene" uid="uid://b1etd0dhplhv5" path="res://assets/trees/models/Spruce3.glb" id="3_tw4tq"]
+[ext_resource type="PackedScene" uid="uid://dctjwiem0bacd" path="res://assets/trees/models/Spruce4.glb" id="4_aer8x"]
+[ext_resource type="PackedScene" uid="uid://8oc3dxch22de" path="res://assets/trees/models/Spruce5.glb" id="5_en75c"]
+[ext_resource type="PackedScene" uid="uid://ca0rq26604qo7" path="res://assets/trees/models/Spruce6.glb" id="6_gcfx1"]
+[ext_resource type="PackedScene" uid="uid://b732andl068pw" path="res://assets/trees/models/DeadSpruce.glb" id="7_2ph0e"]
+[ext_resource type="PackedScene" uid="uid://dpdatcnw0nubv" path="res://assets/trees/models/SpruceSapling1.glb" id="8_7l24j"]
+[ext_resource type="PackedScene" uid="uid://dytqgapdifu6a" path="res://assets/trees/models/SpruceSapling2.glb" id="9_20ct0"]
+[ext_resource type="PackedScene" uid="uid://b73r57dogakqq" path="res://assets/trees/models/SpruceBush.glb" id="10_g5jgb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x30q4"]
 transparency = 4
@@ -21,6 +31,106 @@ last_lod = 0
 last_shadow_lod = 0
 lod0_range = 128.0
 
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_0jjy1"]
+name = "Spruce1"
+id = 1
+scene_file = ExtResource("1_nsrxk")
+height_offset = -0.2
+density = 0.034469206
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_ocgon"]
+name = "Spruce2"
+id = 2
+scene_file = ExtResource("2_inkgg")
+height_offset = -0.2
+density = 0.0406413
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_mgir5"]
+name = "Spruce3"
+id = 3
+scene_file = ExtResource("3_tw4tq")
+height_offset = -0.2
+density = 0.032963973
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_oubxg"]
+name = "Spruce4"
+id = 4
+scene_file = ExtResource("4_aer8x")
+height_offset = -0.2
+density = 0.024048964
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_ffeoc"]
+name = "Spruce5"
+id = 5
+scene_file = ExtResource("5_en75c")
+height_offset = -0.2
+density = 0.02770273
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_wkpla"]
+name = "Spruce6"
+id = 6
+scene_file = ExtResource("6_gcfx1")
+height_offset = -0.2
+density = 0.026481317
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_lvpl8"]
+name = "DeadSpruce"
+id = 7
+scene_file = ExtResource("7_2ph0e")
+height_offset = -0.2
+density = 0.0406413
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_rafi7"]
+name = "SpruceSapling1"
+id = 8
+scene_file = ExtResource("8_7l24j")
+height_offset = -0.2
+density = 0.24977085
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_kr3f7"]
+name = "SpruceSapling2"
+id = 9
+scene_file = ExtResource("9_20ct0")
+height_offset = -0.2
+density = 0.18818106
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_jswjh"]
+name = "SpruceBush"
+id = 10
+scene_file = ExtResource("10_g5jgb")
+height_offset = -0.2
+density = 0.50902337
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_snow"]
 name = "Snow"
 albedo_texture = ExtResource("1_snowalb")
@@ -28,5 +138,5 @@ normal_texture = ExtResource("2_snownrm")
 uv_scale = 0.15
 
 [resource]
-mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_7n7mu")])
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_7n7mu"), SubResource("Terrain3DMeshAsset_0jjy1"), SubResource("Terrain3DMeshAsset_ocgon"), SubResource("Terrain3DMeshAsset_mgir5"), SubResource("Terrain3DMeshAsset_oubxg"), SubResource("Terrain3DMeshAsset_ffeoc"), SubResource("Terrain3DMeshAsset_wkpla"), SubResource("Terrain3DMeshAsset_lvpl8"), SubResource("Terrain3DMeshAsset_rafi7"), SubResource("Terrain3DMeshAsset_kr3f7"), SubResource("Terrain3DMeshAsset_jswjh")])
 texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_snow")])
