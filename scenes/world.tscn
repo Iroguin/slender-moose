@@ -1,12 +1,6 @@
 [gd_scene format=3 uid="uid://dagucwp3qumhf"]
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gv5m4"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gv5m4"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_gv5m4"]
-material = SubResource("StandardMaterial3D_gv5m4")
-size = Vector2(200, 200)
+[ext_resource type="Terrain3DAssets" uid="uid://dckytk7e43frc" path="res://data/snow_assets.tres" id="1_snowassets"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
 
@@ -19,15 +13,64 @@ ambient_light_source = 3
 ambient_light_color = Color(0.14589137, 0.22369477, 1, 1)
 volumetric_fog_enabled = true
 
+[sub_resource type="Gradient" id="Gradient_e5uuo"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nnsk1"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rwgxs"]
+noise = SubResource("FastNoiseLite_nnsk1")
+color_ramp = SubResource("Gradient_e5uuo")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_4wyf3"]
+_shader_parameters = {
+&"bias_distance": null,
+&"blend_sharpness": null,
+&"depth_blur": null,
+&"enable_macro_variation": null,
+&"enable_projection": false,
+&"flat_terrain_normals": null,
+&"macro_variation1": null,
+&"macro_variation2": null,
+&"macro_variation_slope": null,
+&"mipmap_bias": null,
+&"noise1_angle": null,
+&"noise1_offset": null,
+&"noise1_scale": null,
+&"noise2_scale": null,
+&"noise_texture": SubResource("NoiseTexture2D_rwgxs"),
+&"projection_threshold": null,
+&"world_noise_fragment_normals": null,
+&"world_noise_height": null,
+&"world_noise_lod_distance": null,
+&"world_noise_max_octaves": null,
+&"world_noise_min_octaves": null,
+&"world_noise_offset": null,
+&"world_noise_region_blend": null,
+&"world_noise_scale": null
+}
+world_background = 2
+
 [node name="world" type="Node3D" unique_id=1786259902]
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1451842041]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=521135744]
-shape = SubResource("WorldBoundaryShape3D_gv5m4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=869459334]
-mesh = SubResource("PlaneMesh_gv5m4")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1654342572]
 environment = SubResource("Environment_fj7yv")
+
+[node name="Terrain3D" type="Terrain3D" parent="." unique_id=1300758014]
+data_directory = "res://data"
+material = SubResource("Terrain3DMaterial_4wyf3")
+assets = ExtResource("1_snowassets")
+top_level = true
+metadata/_edit_lock_ = true
