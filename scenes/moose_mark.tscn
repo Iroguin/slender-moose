@@ -30,6 +30,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [29.95]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mark:transparency")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mark:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.03, 0.03, 0.03)]
+}
 
 [sub_resource type="Animation" id="Animation_5f3yb"]
 resource_name = "idle"
@@ -46,6 +70,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [29.95, 16.66, 31.59, 25.523, 39.1, 14.975, 43.5, 29.95]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mark:transparency")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.82, 1.55, 2.31, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0, 1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mark:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.83, 1.5666667, 2.3, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.03, 0.03, 0.03), Vector3(0.01, 0.01, 0.01), Vector3(0.03, 0.03, 0.03), Vector3(0.01, 0.01, 0.01), Vector3(0.03, 0.03, 0.03)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_td2m5"]
@@ -103,6 +151,7 @@ autoplay = &"idle"
 
 [node name="Mark" type="MeshInstance3D" parent="." unique_id=2106802051]
 unique_name_in_owner = true
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
 mesh = SubResource("SphereMesh_5f3yb")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
