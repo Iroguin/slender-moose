@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://xalnhj5r5t8"]
+
+[ext_resource type="Script" uid="uid://dge8ssr0nst2k" path="res://scripts/pause_menu.gd" id="1_n87rw"]
+
+[node name="pause_menu" type="CanvasLayer" unique_id=593908728]
+process_mode = 3
+script = ExtResource("1_n87rw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1121011746]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.19607843)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1062509657]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1688243725]
+layout_mode = 2
+alignment = 1
+
+[node name="Continue_Button" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=562486744]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Continue"
+
+[node name="Return_Button" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=1105629219]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Return to main menu"
+
+[node name="Quit_Button" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=568003823]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Continue_Button" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Return_Button" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]

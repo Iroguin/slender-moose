@@ -1,0 +1,32 @@
+[gd_resource type="Terrain3DAssets" format=3 uid="uid://dckytk7e43frc"]
+
+[ext_resource type="Texture2D" uid="uid://donato7yuyffw" path="res://assets/textures/snow_alb_ht.png" id="1_snowalb"]
+[ext_resource type="Texture2D" uid="uid://ccb3i4dst5m5q" path="res://assets/textures/snow_nrm_rgh.png" id="2_snownrm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x30q4"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_7n7mu"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_x30q4")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_snow"]
+name = "Snow"
+albedo_texture = ExtResource("1_snowalb")
+normal_texture = ExtResource("2_snownrm")
+uv_scale = 0.15
+
+[resource]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_7n7mu")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_snow")])
