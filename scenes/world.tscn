@@ -10,8 +10,10 @@ sky_material = SubResource("ProceduralSkyMaterial_gv5m4")
 [sub_resource type="Environment" id="Environment_fj7yv"]
 sky = SubResource("Sky_f3sb7")
 ambient_light_source = 3
-ambient_light_color = Color(0.14589137, 0.22369477, 1, 1)
+ssao_enabled = true
 volumetric_fog_enabled = true
+volumetric_fog_emission = Color(0.03184488, 0.0332592, 0.04335182, 1)
+volumetric_fog_length = 88.19
 
 [sub_resource type="Gradient" id="Gradient_e5uuo"]
 offsets = PackedFloat32Array(0.2, 1)
