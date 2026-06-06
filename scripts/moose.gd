@@ -41,6 +41,6 @@ func _on_moose_charge_timer_timeout() -> void:
 	else:
 		var charge_distance := global_position.distance_to(player.global_position)
 		var charge_dir := global_position.direction_to(player.global_position)
-		var charge_pos := charge_dir * (charge_distance * 2)
+		var charge_pos := global_position + charge_dir * (charge_distance * 2)
 		moose_charge(charge_pos)
 	%MooseChargeTimer.start(randf_range(charge_delay_min, charge_delay_max))
