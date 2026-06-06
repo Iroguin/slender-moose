@@ -18,11 +18,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	# Charge on press if debug
-	if Input.is_action_just_pressed("ui_accept") and OS.is_debug_build():
-		var rand_x := randf_range(-30, 30)
-		var rand_z := randf_range(-30, 30)
-		moose_charge(Vector3(rand_x, 0, rand_z))
+	pass
 
 
 ## Makes the Moose charge to ´where´.
