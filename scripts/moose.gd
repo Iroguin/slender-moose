@@ -39,7 +39,6 @@ func moose_charge(where: Vector3):
 func warp_to_random_spot_near_player():
 	var rand_position = (Vector3.FORWARD * 40).rotated(Vector3.UP, randf_range(0, 360))
 	var new_position = player.position + rand_position
-	print_debug(new_position)
 	position = new_position
 
 
