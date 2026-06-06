@@ -27,8 +27,10 @@ shader_parameter/frost_fade = 0.6
 shader_parameter/frost_brightness = 0.75
 shader_parameter/snow_density = 0.93600001838093
 shader_parameter/snow_velocity = Vector3(0.2, -0.3, 0.2)
-shader_parameter/snow_near_clip = 0.9825
+shader_parameter/snow_near_clip = 0.97
 shader_parameter/snow_far_clip = 0.9975
+shader_parameter/flake_turbulence = 0.0499999988824
+shader_parameter/flake_turbulence_scale = 0.08
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vu45j"]
 

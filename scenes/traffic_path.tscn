@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dix3qreqdngm3"]
+
+[ext_resource type="Script" uid="uid://brhdq1ljqvn30" path="res://scripts/traffic_path.gd" id="1_traffic"]
+
+[sub_resource type="Curve3D" id="Curve3D_road"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -40, 0, -40, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, 40, 0, 40),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[node name="TrafficPath" type="Path3D" unique_id=156396461]
+curve = SubResource("Curve3D_road")
+script = ExtResource("1_traffic")
+min_speed = 6.0
+max_speed = 12.0

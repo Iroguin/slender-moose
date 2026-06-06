@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://jkgcia8yg70y" path="res://assets/trees/models/Spruce1.glb" id="1_nsrxk"]
 [ext_resource type="Texture2D" uid="uid://donato7yuyffw" path="res://assets/textures/snow_alb_ht.png" id="1_snowalb"]
 [ext_resource type="PackedScene" uid="uid://dgarls13nqlvs" path="res://assets/trees/models/Spruce2.glb" id="2_inkgg"]
-[ext_resource type="Texture2D" uid="uid://ccb3i4dst5m5q" path="res://assets/textures/snow_nrm_rgh.png" id="2_snownrm"]
 [ext_resource type="PackedScene" uid="uid://b1etd0dhplhv5" path="res://assets/trees/models/Spruce3.glb" id="3_tw4tq"]
 [ext_resource type="PackedScene" uid="uid://dctjwiem0bacd" path="res://assets/trees/models/Spruce4.glb" id="4_aer8x"]
 [ext_resource type="PackedScene" uid="uid://8oc3dxch22de" path="res://assets/trees/models/Spruce5.glb" id="5_en75c"]
@@ -12,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dpdatcnw0nubv" path="res://assets/trees/models/SpruceSapling1.glb" id="8_7l24j"]
 [ext_resource type="PackedScene" uid="uid://dytqgapdifu6a" path="res://assets/trees/models/SpruceSapling2.glb" id="9_20ct0"]
 [ext_resource type="PackedScene" uid="uid://b73r57dogakqq" path="res://assets/trees/models/SpruceBush.glb" id="10_g5jgb"]
+[ext_resource type="Texture2D" uid="uid://5mduw7ea7e7w" path="res://assets/textures/road_alb_ht.png" id="road_alb"]
+[ext_resource type="Texture2D" uid="uid://butf3rcalgcip" path="res://assets/textures/road_nrm_rgh.png" id="road_nrm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x30q4"]
 transparency = 4
@@ -131,12 +132,17 @@ last_lod = 0
 last_shadow_lod = 0
 lod0_range = 128.0
 
-[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_snow"]
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_tw4tq"]
 name = "Snow"
 albedo_texture = ExtResource("1_snowalb")
-normal_texture = ExtResource("2_snownrm")
-uv_scale = 0.15
+normal_texture = ExtResource("road_nrm")
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_inkgg"]
+name = "Road"
+id = 1
+albedo_texture = ExtResource("road_alb")
+normal_texture = ExtResource("road_nrm")
 
 [resource]
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_7n7mu"), SubResource("Terrain3DMeshAsset_0jjy1"), SubResource("Terrain3DMeshAsset_ocgon"), SubResource("Terrain3DMeshAsset_mgir5"), SubResource("Terrain3DMeshAsset_oubxg"), SubResource("Terrain3DMeshAsset_ffeoc"), SubResource("Terrain3DMeshAsset_wkpla"), SubResource("Terrain3DMeshAsset_lvpl8"), SubResource("Terrain3DMeshAsset_rafi7"), SubResource("Terrain3DMeshAsset_kr3f7"), SubResource("Terrain3DMeshAsset_jswjh")])
-texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_snow")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_tw4tq"), SubResource("Terrain3DTextureAsset_inkgg")])

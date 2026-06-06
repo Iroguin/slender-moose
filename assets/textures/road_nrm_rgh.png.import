@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccb3i4dst5m5q"
-path="res://.godot/imported/snow_nrm_rgh.png-6522dc8e15c7537c54d70830546c5691.ctex"
+uid="uid://butf3rcalgcip"
+path="res://.godot/imported/road_nrm_rgh.png-8b87d77454bd60f1f2720843c075cd10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/snow_nrm_rgh.png"
-dest_files=["res://.godot/imported/snow_nrm_rgh.png-6522dc8e15c7537c54d70830546c5691.ctex"]
+source_file="res://assets/textures/road_nrm_rgh.png"
+dest_files=["res://.godot/imported/road_nrm_rgh.png-8b87d77454bd60f1f2720843c075cd10.ctex"]
 
 [params]
 
