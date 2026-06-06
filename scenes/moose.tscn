@@ -2,8 +2,39 @@
 
 [ext_resource type="Script" uid="uid://bfdwaaikivqic" path="res://scripts/moose.gd" id="1_selvl"]
 [ext_resource type="Texture2D" uid="uid://dh3fvnu0svxt5" path="res://assets/icon.svg" id="2_selvl"]
+[ext_resource type="AudioStream" uid="uid://crqbvs008a8wt" path="res://sounds/moose-01.ogg" id="3_8ax05"]
+[ext_resource type="AudioStream" uid="uid://bi387sohiocqk" path="res://sounds/moose-02.ogg" id="4_4smvx"]
+[ext_resource type="AudioStream" uid="uid://j5wgjhp685mo" path="res://sounds/moose-11.ogg" id="5_7qvcw"]
+[ext_resource type="AudioStream" uid="uid://cmaj47fyvsamn" path="res://sounds/moose-12.ogg" id="6_q0yq5"]
+[ext_resource type="AudioStream" uid="uid://kkxosthewnxo" path="res://sounds/moose-13.ogg" id="7_as1kx"]
+[ext_resource type="AudioStream" uid="uid://cbtjrpn37idb4" path="res://sounds/moose-14.ogg" id="8_xvvif"]
+[ext_resource type="AudioStream" uid="uid://dsgrx513ovmtc" path="res://sounds/moose-03.ogg" id="9_3jxxq"]
+[ext_resource type="AudioStream" uid="uid://huh447gxkv5n" path="res://sounds/moose-04.ogg" id="10_d3def"]
+[ext_resource type="AudioStream" uid="uid://bcj1ap5xbjrg8" path="res://sounds/moose-05.ogg" id="11_vblwa"]
+[ext_resource type="AudioStream" uid="uid://ckbr552v7wfb0" path="res://sounds/moose-06.ogg" id="12_p8vj3"]
+[ext_resource type="AudioStream" uid="uid://vi0tujx1nhsh" path="res://sounds/moose-07.ogg" id="13_6nb40"]
+[ext_resource type="AudioStream" uid="uid://dqx4o6xmc6f2w" path="res://sounds/moose-08.ogg" id="14_l16xu"]
+[ext_resource type="AudioStream" uid="uid://drca87m8xhdoc" path="res://sounds/moose-09.ogg" id="15_yvmbc"]
+[ext_resource type="AudioStream" uid="uid://cwbb8wgapoj53" path="res://sounds/moose-10.ogg" id="16_20wtp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_selvl"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lbh5r"]
+streams_count = 14
+stream_0/stream = ExtResource("3_8ax05")
+stream_1/stream = ExtResource("4_4smvx")
+stream_2/stream = ExtResource("9_3jxxq")
+stream_3/stream = ExtResource("10_d3def")
+stream_4/stream = ExtResource("11_vblwa")
+stream_5/stream = ExtResource("12_p8vj3")
+stream_6/stream = ExtResource("13_6nb40")
+stream_7/stream = ExtResource("14_l16xu")
+stream_8/stream = ExtResource("15_yvmbc")
+stream_9/stream = ExtResource("16_20wtp")
+stream_10/stream = ExtResource("5_7qvcw")
+stream_11/stream = ExtResource("6_q0yq5")
+stream_12/stream = ExtResource("7_as1kx")
+stream_13/stream = ExtResource("8_xvvif")
 
 [node name="Moose" type="Node3D" unique_id=273658079]
 script = ExtResource("1_selvl")
@@ -28,5 +59,10 @@ shape = SubResource("BoxShape3D_selvl")
 [node name="MooseWarningTimer" type="Timer" parent="." unique_id=599218951]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="MooseSound" type="AudioStreamPlayer3D" parent="." unique_id=1214831857]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_lbh5r")
+bus = &"Moose"
 
 [connection signal="timeout" from="MooseChargeTimer" to="." method="_on_moose_charge_timer_timeout"]

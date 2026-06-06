@@ -25,10 +25,6 @@ func _process(_delta: float) -> void:
 		moose_charge(Vector3(rand_x, 0, rand_z))
 
 
-func moose_warning():
-	pass
-
-
 ## Makes the Moose charge to ´where´.
 func moose_charge(where: Vector3):
 	var charge_tween := get_tree().create_tween()
@@ -39,6 +35,8 @@ func moose_charge(where: Vector3):
 # TODO make this warn and charge toward the player
 ## Makes the moose charge when the timer runs out
 func _on_moose_charge_timer_timeout() -> void:
+	%MooseSound.play()
+	await get_tree().create_timer(2).timeout
 	if player == null:
 		var rand_x := randf_range(-30, 30)
 		var rand_z := randf_range(-30, 30)
