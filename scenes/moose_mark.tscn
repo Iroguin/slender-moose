@@ -54,6 +54,15 @@ _data = {
 &"idle": SubResource("Animation_5f3yb")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1giii"]
+no_depth_test = true
+shading_mode = 0
+fixed_size = true
+point_size = 13.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_5f3yb"]
+material = SubResource("StandardMaterial3D_1giii")
+
 [node name="MooseMark" type="Node3D" unique_id=1550959728]
 script = ExtResource("1_1giii")
 
@@ -69,7 +78,7 @@ mesh = SubResource("CapsuleMesh_t6mo5")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1490395505]
 light_color = Color(0.9696974, 0.69255304, 0.63697296, 1)
-light_volumetric_fog_energy = 5.681
+light_volumetric_fog_energy = 16.0
 omni_range = 29.95
 
 [node name="Sign" type="Node3D" parent="." unique_id=860452064]
@@ -91,5 +100,9 @@ mesh = SubResource("PrismMesh_5f3yb")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2135988269]
 libraries/ = SubResource("AnimationLibrary_td2m5")
 autoplay = &"idle"
+
+[node name="Mark" type="MeshInstance3D" parent="." unique_id=2106802051]
+unique_name_in_owner = true
+mesh = SubResource("SphereMesh_5f3yb")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

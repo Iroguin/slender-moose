@@ -44,6 +44,7 @@ current = true
 
 [node name="SnowEffect" type="MeshInstance3D" parent="Camera3D" unique_id=494395351]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+visible = false
 cast_shadow = 0
 extra_cull_margin = 16384.0
 custom_aabb = AABB(-100000, -100000, -100000, 200000, 200000, 200000)

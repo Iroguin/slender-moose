@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://w3uugctlb27g" path="res://scenes/moose.tscn" id="3_d2op2"]
 [ext_resource type="PackedScene" uid="uid://xalnhj5r5t8" path="res://scenes/pause_menu.tscn" id="4_pausemenu"]
 [ext_resource type="AudioStream" uid="uid://bsrot3ddc1j7m" path="res://sounds/532301__widgetstudios__night-woods.mp3" id="6_ygxny"]
-[ext_resource type="PackedScene" uid="uid://c4atbox6duvyv" path="res://scenes/moose_mark.tscn" id="7_wi4c7"]
 
 [node name="main_game" type="Node3D" unique_id=979090175]
 script = ExtResource("1_ipu61")
@@ -25,8 +24,5 @@ player = NodePath("../character")
 [node name="ForestSounds" type="AudioStreamPlayer" parent="." unique_id=1326837534]
 stream = ExtResource("6_ygxny")
 autoplay = true
-
-[node name="MooseMark" parent="." unique_id=1550959728 instance=ExtResource("7_wi4c7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.824242, 0, -16.309425)
 
 [connection signal="hit_player" from="Moose" to="." method="_on_moose_hit_player"]

@@ -23,6 +23,7 @@ func _process(_delta: float) -> void:
 	pass
 
 
+#TODO make moose dissapear better
 ## Makes the Moose charge to ´where´.
 func moose_charge(where: Vector3):
 	var charge_tween := get_tree().create_tween()
@@ -31,6 +32,8 @@ func moose_charge(where: Vector3):
 	charge_tween.set_ease(Tween.EASE_IN)
 	charge_tween.tween_property(self, "global_position", where, charge_time)
 	charge_tween.tween_property(%Sprite3D, "modulate", Color.TRANSPARENT, 0.5)
+	await charge_tween.finished
+	hide()
 
 
 func warp_to_random_spot_near_player():
@@ -40,7 +43,6 @@ func warp_to_random_spot_near_player():
 	position = new_position
 
 
-# TODO make this warn and charge toward the player
 ## Makes the moose charge when the timer runs out
 func _on_moose_charge_timer_timeout() -> void:
 	if player == null:
@@ -51,6 +53,7 @@ func _on_moose_charge_timer_timeout() -> void:
 		return
 	
 	warp_to_random_spot_near_player()
+	show()
 	%MooseSound.play()
 	%Sprite3D.modulate = Color.WHITE
 	await get_tree().create_timer(2).timeout
