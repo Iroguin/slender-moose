@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://b27xl4wjgvp0a"]
 
 [ext_resource type="PackedScene" uid="uid://dagucwp3qumhf" path="res://scenes/world.tscn" id="1_72e8q"]
+[ext_resource type="Script" uid="uid://boytpgxbbv07m" path="res://scripts/main_game.gd" id="1_ipu61"]
 [ext_resource type="PackedScene" uid="uid://bd0l84mli7t7b" path="res://scenes/character.tscn" id="2_d2op2"]
 [ext_resource type="PackedScene" uid="uid://w3uugctlb27g" path="res://scenes/moose.tscn" id="3_d2op2"]
 [ext_resource type="PackedScene" uid="uid://xalnhj5r5t8" path="res://scenes/pause_menu.tscn" id="4_pausemenu"]
 
 [node name="main_game" type="Node3D" unique_id=979090175]
+script = ExtResource("1_ipu61")
 
 [node name="world" parent="." unique_id=1786259902 instance=ExtResource("1_72e8q")]
 
@@ -19,3 +21,5 @@ charge_time = 5.0
 charge_delay_max = 10.0
 
 [node name="pause_menu" parent="." unique_id=593908728 instance=ExtResource("4_pausemenu")]
+
+[connection signal="hit_player" from="Moose" to="." method="_on_moose_hit_player"]
