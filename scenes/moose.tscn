@@ -82,15 +82,15 @@ charge_time = 2.0
 
 [node name="Sprite3D" type="AnimatedSprite3D" parent="." unique_id=1180405986]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-pixel_size = 0.001
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1476102, 0)
+pixel_size = 0.0015
 billboard = 2
 shaded = true
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_l16xu")
 animation = &"Run"
 autoplay = "Idle"
-frame_progress = 0.9062356
+frame_progress = 0.2401149
 
 [node name="MooseChargeTimer" type="Timer" parent="." unique_id=1420594953]
 unique_name_in_owner = true
