@@ -24,10 +24,13 @@ tonemap_mode = 2
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
 glow_enabled = true
-fog_enabled = true
 fog_mode = 1
 fog_density = 1.0
+fog_depth_begin = -62.5
+fog_depth_end = 149.0
 volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.84337616, 0.92924356, 0.9691103, 1)
+volumetric_fog_emission = Color(0.0938564, 0.06877797, 0.01828489, 1)
 
 [node name="main_game" type="Node3D" unique_id=979090175]
 script = ExtResource("1_ipu61")
