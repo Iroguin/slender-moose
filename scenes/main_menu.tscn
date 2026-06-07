@@ -14,8 +14,16 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.27411965, 0.38008344, 0.6110934, 1)
 
-[node name="Metta1" type="Sprite2D" parent="." unique_id=1597247285]
-position = Vector2(576, 324.00003)
+[node name="Metta1" type="TextureRect" parent="." unique_id=1178096580]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.9999733
+offset_top = -0.9999995
+offset_right = 2360.0903
+offset_bottom = 1834.8271
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.32839224, 0.26129034)
 texture = ExtResource("2_ekxnf")
 
