@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c4atbox6duvyv" path="res://scenes/moose_mark.tscn" id="7_wi4c7"]
 [ext_resource type="Script" uid="uid://dvgg3rolb57l5" path="res://scripts/tree_colliders.gd" id="8_treecol"]
 [ext_resource type="Resource" uid="uid://crwgg6qw1qsb7" path="res://data/tree_trunks.tres" id="9_trunkdata"]
+[ext_resource type="PackedScene" uid="uid://dgi5o3vcgr44" path="res://scenes/decoration_car.tscn" id="11_5cypo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2l77h"]
 
@@ -65,6 +66,9 @@ environment = SubResource("Environment_nqdth")
 car_count = 2
 minspeed = 15.0
 maxspeed = 25.0
+
+[node name="decoration_car" parent="." unique_id=1830154083 instance=ExtResource("11_5cypo")]
+transform = Transform3D(-0.5657732, 2.1228425e-08, 0.82456076, -0.337862, -0.91219884, -0.23182432, 0.7521635, -0.4097478, 0.5160977, -25.788782, 1.0372541, -12.323082)
 
 [connection signal="hit_player" from="Moose" to="." method="_on_moose_hit_player"]
 [connection signal="hit_player" from="TrafficPath" to="." method="_on_moose_hit_player"]
