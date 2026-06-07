@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c0p8rutfel727"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b0jew"]
+size = Vector3(1.8, 1, 4.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b0jew"]
+albedo_color = Color(0.40186706, 0.47258532, 0.5838986, 1)
+metallic = 0.7
+
+[sub_resource type="BoxMesh" id="BoxMesh_c35m8"]
+material = SubResource("StandardMaterial3D_b0jew")
+size = Vector3(1.8, 1, 4.2)
+
+[node name="car" type="Node3D" unique_id=936432015]
+
+[node name="RigidBody3D" type="AnimatableBody3D" parent="." unique_id=350208934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51449704, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=894797434]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0072631836, 0, 0)
+shape = SubResource("BoxShape3D_b0jew")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1843492169]
+mesh = SubResource("BoxMesh_c35m8")

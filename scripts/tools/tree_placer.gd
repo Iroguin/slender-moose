@@ -1,10 +1,13 @@
 @tool
 extends EditorScript
 
-# Procedurally scatters spruce trees across the Terrain3D regions.
+# Procedurally scatters spruce trees across the Terrain3D
 # Run from the editor (Cmd+Shift+X) with scenes/world.tscn open, then save.
 
 const TREE_MESH_IDS := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  # Spruce1-9
+# Which ids get trunk collision
+const FULL_TREE_IDS := [1, 2, 3, 4, 5, 6, 7]
+const TRUNK_DATA_PATH := "res://data/tree_trunks.tres"
 const TREE_COUNT := 4000 # How many trees to place
 const AREA_HALF := 500.0 # Scatter within this many meters of origin
 const MIN_SCALE := 1.0
@@ -25,6 +28,8 @@ func _run() -> void:
 	var batches := {}
 	for id in TREE_MESH_IDS:
 		batches[id] = [] as Array[Transform3D]
+
+	var trunk_transforms: Array[Transform3D] = []
 
 	var placed := 0
 	var attempts := 0
@@ -63,7 +68,10 @@ func _run() -> void:
 		basis = basis.scaled(Vector3.ONE * rng.randf_range(MIN_SCALE, MAX_SCALE))
 
 		var mesh_id: int = TREE_MESH_IDS[rng.randi() % TREE_MESH_IDS.size()]
-		batches[mesh_id].push_back(Transform3D(basis, pos))
+		var xform := Transform3D(basis, pos)
+		batches[mesh_id].push_back(xform)
+		if mesh_id in FULL_TREE_IDS:
+			trunk_transforms.push_back(xform)
 		placed += 1
 
 	# Push each batch to the instancer.
@@ -71,6 +79,15 @@ func _run() -> void:
 		if batches[id].size() > 0:
 			terrain.instancer.clear_by_mesh(id)   # remove old before re-adding
 			terrain.instancer.add_transforms(id, batches[id])
+
+	# Save the tree transforms for the collision spawner
+	var trunk_data := TreeTrunkData.new()
+	trunk_data.transforms = trunk_transforms
+	var err := ResourceSaver.save(trunk_data, TRUNK_DATA_PATH)
+	if err == OK:
+		print("Saved ", trunk_transforms.size(), " trunk colliders to ", TRUNK_DATA_PATH)
+	else:
+		push_error("Failed to save trunk data: %d" % err)
 
 	print("Placed ", placed, " trees (", attempts, " attempts).")
 	print("SAVE (Cmd+S) to bake into terrain data.")

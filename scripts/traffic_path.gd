@@ -30,10 +30,6 @@ func _rebuild() -> void:
 	followers.clear()
 	speeds.clear()
 
-	if curve == null or curve.point_count < 2:
-		push_warning("TrafficPath '%s' needs a curve with at least 2 points." % name)
-		return
-
 	var path_length := curve.get_baked_length()
 	var rng := RandomNumberGenerator.new()
 	rng.randomize()
