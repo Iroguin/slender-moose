@@ -15,6 +15,7 @@ const JUMP_VELOCITY = 4.5
 @export var bob_smoothing: float = 10.0
 
 @onready var camera: Camera3D = $Camera3D
+@onready var footstep_audio: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var min_pitch: float = deg_to_rad(-89)
 var max_pitch: float = deg_to_rad(89)
@@ -67,6 +68,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	_update_headbob(delta)
+	_footsteps()
+
+func _footsteps() -> void:
+	var horizontal_speed := Vector2(velocity.x, velocity.z).length()
+	var moving := is_on_floor() and horizontal_speed > 0.1
+	if moving and not footstep_audio.playing:
+		footstep_audio.play()
+	elif not moving and footstep_audio.playing:
+		footstep_audio.stop()
 
 func _update_headbob(delta: float) -> void:
 	var horizontal_speed := Vector2(velocity.x, velocity.z).length()
