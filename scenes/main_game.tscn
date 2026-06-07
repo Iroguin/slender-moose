@@ -10,6 +10,22 @@
 [ext_resource type="Script" uid="uid://dvgg3rolb57l5" path="res://scripts/tree_colliders.gd" id="8_treecol"]
 [ext_resource type="Resource" uid="uid://crwgg6qw1qsb7" path="res://data/tree_trunks.tres" id="9_trunkdata"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2l77h"]
+
+[sub_resource type="Sky" id="Sky_f3sb7"]
+sky_material = SubResource("ProceduralSkyMaterial_2l77h")
+
+[sub_resource type="Environment" id="Environment_nqdth"]
+sky = SubResource("Sky_f3sb7")
+ambient_light_source = 3
+sdfgi_enabled = true
+sdfgi_read_sky_light = false
+glow_enabled = true
+fog_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_emission = Color(0.03184488, 0.0332592, 0.04335182, 1)
+volumetric_fog_detail_spread = 6.0
+
 [node name="main_game" type="Node3D" unique_id=979090175]
 script = ExtResource("1_ipu61")
 
@@ -35,5 +51,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.824242, 0, -16.309425)
 [node name="TreeColliders" type="Node3D" parent="." unique_id=1550959729]
 script = ExtResource("8_treecol")
 trunk_data = ExtResource("9_trunkdata")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1627003706]
+environment = SubResource("Environment_nqdth")
 
 [connection signal="hit_player" from="Moose" to="." method="_on_moose_hit_player"]

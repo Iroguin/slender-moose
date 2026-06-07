@@ -2,19 +2,6 @@
 
 [ext_resource type="Terrain3DAssets" uid="uid://dckytk7e43frc" path="res://data/snow_assets.tres" id="1_snowassets"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
-
-[sub_resource type="Sky" id="Sky_f3sb7"]
-sky_material = SubResource("ProceduralSkyMaterial_gv5m4")
-
-[sub_resource type="Environment" id="Environment_fj7yv"]
-sky = SubResource("Sky_f3sb7")
-ambient_light_source = 3
-ssao_enabled = true
-volumetric_fog_enabled = true
-volumetric_fog_emission = Color(0.03184488, 0.0332592, 0.04335182, 1)
-volumetric_fog_length = 88.19
-
 [sub_resource type="Gradient" id="Gradient_e5uuo"]
 offsets = PackedFloat32Array(0.2, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -66,9 +53,6 @@ _shader_parameters = {
 world_background = 2
 
 [node name="world" type="Node3D" unique_id=1786259902]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1654342572]
-environment = SubResource("Environment_fj7yv")
 
 [node name="Terrain3D" type="Terrain3D" parent="." unique_id=1300758014]
 data_directory = "res://data"
