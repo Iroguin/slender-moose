@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dgi5o3vcgr44"]
+
+[ext_resource type="ArrayMesh" uid="uid://ybfctnvjvesy" path="res://assets/cars/OBJ/NormalCar1.obj" id="1_o1tvf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_juqsa"]
+size = Vector3(1.4833374, 0.86569214, 3.9355621)
+
+[node name="decoration_car" type="Node3D" unique_id=1830154083]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=71185025]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=412150609]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0082092285, 0.61787415, 0.031303406)
+shape = SubResource("BoxShape3D_juqsa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1651397327]
+mesh = ExtResource("1_o1tvf")
