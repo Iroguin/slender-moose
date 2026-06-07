@@ -1,9 +1,49 @@
 [gd_scene format=3 uid="uid://dgi5o3vcgr44"]
 
 [ext_resource type="ArrayMesh" uid="uid://ybfctnvjvesy" path="res://assets/cars/OBJ/NormalCar1.obj" id="1_o1tvf"]
+[ext_resource type="Shader" uid="uid://b68fndox4s1h5" path="res://shaders/fire_shader.gdshader" id="2_juqsa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_juqsa"]
 size = Vector3(1.4833374, 0.86569214, 3.9355621)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_juqsa"]
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_u4fik"]
+noise = SubResource("FastNoiseLite_juqsa")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v8cit"]
+render_priority = 0
+shader = ExtResource("2_juqsa")
+shader_parameter/raymarch_steps = 6
+shader_parameter/sample_jitter = true
+shader_parameter/potato_mode = false
+shader_parameter/sample_noise = SubResource("NoiseTexture3D_u4fik")
+shader_parameter/billboard = false
+shader_parameter/billboard_z_offset = 0.0
+shader_parameter/proximity_fade_distance = 0.0
+shader_parameter/time_scale = 0.027
+shader_parameter/noise_scale = 0.45
+shader_parameter/noise_threshold = 0.43
+shader_parameter/fire_height = 2.45
+shader_parameter/fire_width = 2.25
+shader_parameter/box_center = Vector3(0, 0, 0)
+shader_parameter/box_rotation = Vector3(0, 0, 0)
+shader_parameter/taper_factor = 0.425
+shader_parameter/wobble_strength = 2.0
+shader_parameter/wobble_speed = 6.0
+shader_parameter/wobble_noise_frequency = 0.125
+shader_parameter/sharpness_cutoff = 4.5
+shader_parameter/emission_strength = 12.5
+shader_parameter/core_glow_multiplier = 16.0
+shader_parameter/color_core = Vector3(1, 0.9, 0.5)
+shader_parameter/color_mid = Vector3(1, 0.625, 0)
+shader_parameter/color_outer = Vector3(0.8, 0.01, 0)
+shader_parameter/color_smoke = Vector3(-0.067, -0.067, -0.067)
+shader_parameter/jitter_multiplier = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_3e60e"]
+material = SubResource("ShaderMaterial_v8cit")
+size = Vector2(5, 5)
 
 [node name="decoration_car" type="Node3D" unique_id=1830154083]
 
@@ -15,3 +55,7 @@ shape = SubResource("BoxShape3D_juqsa")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1651397327]
 mesh = ExtResource("1_o1tvf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1043783172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71985805, 1.0327263)
+mesh = SubResource("QuadMesh_3e60e")
