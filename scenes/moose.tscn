@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://dqx4o6xmc6f2w" path="res://sounds/moose-08.ogg" id="14_l16xu"]
 [ext_resource type="AudioStream" uid="uid://drca87m8xhdoc" path="res://sounds/moose-09.ogg" id="15_yvmbc"]
 [ext_resource type="AudioStream" uid="uid://cwbb8wgapoj53" path="res://sounds/moose-10.ogg" id="16_20wtp"]
+[ext_resource type="AudioStream" uid="uid://dkiesb55fvyok" path="res://sounds/564628__d4xx__single-horse-galopp.mp3" id="22_3jxxq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l16xu"]
 animations = [{
@@ -90,7 +91,7 @@ alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_l16xu")
 animation = &"Run"
 autoplay = "Idle"
-frame_progress = 0.2401149
+frame_progress = 0.6964559
 
 [node name="MooseChargeTimer" type="Timer" parent="." unique_id=1420594953]
 unique_name_in_owner = true
@@ -117,6 +118,11 @@ bus = &"Moose"
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=592722181]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 visible = false
+
+[node name="GallopAudio" type="AudioStreamPlayer3D" parent="." unique_id=204526810]
+unique_name_in_owner = true
+stream = ExtResource("22_3jxxq")
+doppler_tracking = 1
 
 [connection signal="timeout" from="MooseChargeTimer" to="." method="_on_moose_charge_timer_timeout"]
 [connection signal="body_entered" from="ChargeArea" to="." method="_on_charge_area_body_entered"]

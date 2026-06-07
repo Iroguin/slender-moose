@@ -31,10 +31,12 @@ func moose_charge(where: Vector3):
 	charge_tween.set_trans(Tween.TRANS_CUBIC)
 	charge_tween.set_ease(Tween.EASE_IN)
 	%Sprite3D.play("Run")
+	%GallopAudio.play()
 	charge_tween.tween_property(self, "global_position", where, charge_time)
 	charge_tween.tween_property(%Sprite3D, "modulate", Color.TRANSPARENT, 0.5)
 	await charge_tween.finished
 	hide()
+	%GallopAudio.stop()
 
 
 func warp_to_random_spot_near_player():
