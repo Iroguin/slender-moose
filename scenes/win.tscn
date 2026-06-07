@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://36br8yfpbi0r"]
 
 [ext_resource type="Script" uid="uid://c2hwetjoej1pw" path="res://scripts/win.gd" id="1_r4oei"]
+[ext_resource type="Texture2D" uid="uid://dclo6dsbm4qfe" path="res://assets/sprites/voitto.png" id="2_826fv"]
 
 [node name="Win" type="Control" unique_id=728874079]
 layout_mode = 3
@@ -29,5 +30,15 @@ text = "u win"
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=480192371]
 layout_mode = 2
 text = "Main Menu"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1412618308]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_826fv")
+expand_mode = 2
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
