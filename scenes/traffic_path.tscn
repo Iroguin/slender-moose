@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve3D" id="Curve3D_road"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -110.86186, 0, 45.761185, 0, 0, 0, 0, 0, 0, 0, 0, 9.226885, 0, 0, 0, 0, 0, 0, 206.53008, 0, -38.75997),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -110.86186, 0, 45.761185, 0, 0, 0, 0, 0, 0, 0, 0, 10.969432, 0, 0, 0, 0, 0, 0, 206.53008, 0, -38.75997),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3

@@ -8,6 +8,7 @@
 [ext_resource type="ArrayMesh" uid="uid://den5bd7p5r23o" path="res://assets/cars/OBJ/SUV.obj" id="6_suv"]
 [ext_resource type="ArrayMesh" uid="uid://bea03ae0oulle" path="res://assets/cars/OBJ/Taxi.obj" id="7_taxi"]
 [ext_resource type="ArrayMesh" uid="uid://bmg1hasaueno" path="res://assets/cars/OBJ/Cop.obj" id="8_cop"]
+[ext_resource type="AudioStream" uid="uid://bqb3hyowktr6m" path="res://sounds/freesound_community-car-driving-ambience-6365.mp3" id="9_engine"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b0jew"]
 albedo_color = Color(0.40186706, 0.47258532, 0.5838986, 1)
@@ -43,5 +44,12 @@ shape = SubResource("BoxShape3D_b0jew")
 transform = Transform3D(0.99999213, 0.0037837042, -0.0012087091, -0.0024543218, 0.8278465, 0.56094927, 0.0031230915, -0.5609418, 0.8278493, 0, 2.1196537, 4.1677885)
 light_energy = 10.0
 spot_range = 10.0
+
+[node name="EngineAudio" type="AudioStreamPlayer3D" parent="." unique_id=909321670]
+stream = ExtResource("9_engine")
+volume_db = 6.0
+unit_size = 12.0
+max_distance = 80.0
+autoplay = true
 
 [connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
