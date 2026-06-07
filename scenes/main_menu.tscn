@@ -18,14 +18,10 @@ color = Color(0.27411965, 0.38008344, 0.6110934, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1.9999733
-offset_top = -0.9999995
-offset_right = 2360.0903
-offset_bottom = 1834.8271
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.32839224, 0.26129034)
 texture = ExtResource("2_ekxnf")
+expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=633748184]
 anchors_preset = 15
