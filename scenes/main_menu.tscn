@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://d3wpaln51y7fp" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://bhso03tldecm4" path="res://assets/sprites/metta_1.png" id="2_ekxnf"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_ekxnf"]
+font_color = Color(0, 0, 0, 1)
+
 [node name="main_menu" type="CanvasLayer" unique_id=1336340863]
 script = ExtResource("1_l6cm7")
 
@@ -32,7 +35,7 @@ grow_vertical = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
+theme_override_constants/margin_bottom = 38
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1049798768]
 layout_mode = 2
@@ -50,6 +53,15 @@ text = "Start"
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Quit"
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1656878133]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Game by Edward, Maksu ja Simo"
+label_settings = SubResource("LabelSettings_ekxnf")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
