@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bbpe8eq63v7v8"]
 
 [ext_resource type="Script" uid="uid://d3wpaln51y7fp" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://bhso03tldecm4" path="res://assets/sprites/metta_1.png" id="2_ekxnf"]
 
 [node name="main_menu" type="CanvasLayer" unique_id=1336340863]
 script = ExtResource("1_l6cm7")
@@ -13,27 +14,38 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.27411965, 0.38008344, 0.6110934, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1049798768]
+[node name="Metta1" type="Sprite2D" parent="." unique_id=1597247285]
+position = Vector2(576, 324.00003)
+scale = Vector2(0.32839224, 0.26129034)
+texture = ExtResource("2_ekxnf")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=633748184]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1072913049]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1049798768]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1072913049]
 layout_mode = 2
 alignment = 1
 
-[node name="Start_Button" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=1230748434]
+[node name="Start_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1230748434]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Start"
 
-[node name="Quit_Button" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=1608194890]
+[node name="Quit_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1608194890]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Quit"
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
