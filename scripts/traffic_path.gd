@@ -2,6 +2,8 @@
 class_name TrafficPath
 extends Path3D
 
+signal hit_player
+
 @export var car_scenes: Array[PackedScene] = []
 @export var car_count: int = 4
 @export var minspeed: float = 6.0
@@ -46,6 +48,8 @@ func _rebuild() -> void:
 
 		var car := _make_car(rng)
 		follower.add_child(car)
+		if not Engine.is_editor_hint() and car.has_signal("hit_player"):
+			car.hit_player.connect(_on_car_hit_player)
 		if Engine.is_editor_hint():
 			_set_owner_recursive(car, get_tree().edited_scene_root)
 
@@ -76,6 +80,10 @@ func _process(delta: float) -> void:
 		var f := followers[i]
 		if is_instance_valid(f):
 			f.progress += speeds[i] * delta
+
+func _on_car_hit_player() -> void:
+	hit_player.emit()
+
 
 func _set_owner_recursive(node: Node, scene_owner: Node) -> void:
 	node.owner = scene_owner
