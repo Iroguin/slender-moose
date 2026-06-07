@@ -1,39 +1,63 @@
 [gd_scene format=3 uid="uid://bbpe8eq63v7v8"]
 
 [ext_resource type="Script" uid="uid://d3wpaln51y7fp" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://bhso03tldecm4" path="res://assets/sprites/metta_1.png" id="2_ekxnf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ekxnf"]
+font_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.14117648)
+shadow_offset = Vector2(1, 0.89)
 
 [node name="main_menu" type="CanvasLayer" unique_id=1336340863]
 script = ExtResource("1_l6cm7")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1824318398]
+[node name="ColorRect" type="TextureRect" parent="." unique_id=1083184075]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.27411965, 0.38008344, 0.6110934, 1)
+texture = ExtResource("2_ekxnf")
+expand_mode = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1049798768]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1670175185]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
+theme_override_constants/margin_left = 121
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 21
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1072913049]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1049798768]
 layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1072913049]
+layout_mode = 2
+theme_override_constants/separation = 41
 alignment = 1
 
-[node name="Start_Button" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=1230748434]
+[node name="Start_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1230748434]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Start"
 
-[node name="Quit_Button" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=1608194890]
+[node name="Quit_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1608194890]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Quit"
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=33839744]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Game by Edward, Maksu and Simo"
+label_settings = SubResource("LabelSettings_ekxnf")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
