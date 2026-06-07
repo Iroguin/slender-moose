@@ -36,6 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2083611, 0)
 
 [node name="Moose" parent="." unique_id=273658079 node_paths=PackedStringArray("player") instance=ExtResource("3_d2op2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40.073)
+visible = false
 player = NodePath("../character")
 
 [node name="pause_menu" parent="." unique_id=593908728 instance=ExtResource("4_pausemenu")]
