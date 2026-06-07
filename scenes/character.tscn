@@ -27,7 +27,7 @@ shader_parameter/frost_fade = 0.6
 shader_parameter/frost_brightness = 0.75
 shader_parameter/snow_density = 0.93600001838093
 shader_parameter/snow_velocity = Vector3(0.2, -0.3, 0.2)
-shader_parameter/snow_near_clip = 0.97
+shader_parameter/snow_near_clip = 0.9849999750795
 shader_parameter/snow_far_clip = 0.9975
 shader_parameter/flake_turbulence = 0.0499999988824
 shader_parameter/flake_turbulence_scale = 0.08
@@ -46,7 +46,6 @@ current = true
 
 [node name="SnowEffect" type="MeshInstance3D" parent="Camera3D" unique_id=494395351]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
-visible = false
 cast_shadow = 0
 extra_cull_margin = 16384.0
 custom_aabb = AABB(-100000, -100000, -100000, 200000, 200000, 200000)
