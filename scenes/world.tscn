@@ -2,7 +2,10 @@
 
 [ext_resource type="Terrain3DAssets" uid="uid://dckytk7e43frc" path="res://data/snow_assets.tres" id="1_snowassets"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
+
 [sub_resource type="Sky" id="Sky_f3sb7"]
+sky_material = SubResource("ProceduralSkyMaterial_gv5m4")
 
 [sub_resource type="Environment" id="Environment_fj7yv"]
 sky = SubResource("Sky_f3sb7")
