@@ -18,7 +18,7 @@ noise = SubResource("FastNoiseLite_snow")
 seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_snowfx"]
-render_priority = 100
+render_priority = -1
 shader = ExtResource("2_snowfx")
 shader_parameter/noise_3D = SubResource("NoiseTexture3D_snow")
 shader_parameter/snow_color = Color(0.79, 0.87, 0.95, 1)
@@ -59,3 +59,8 @@ shape = SubResource("CapsuleShape3D_vu45j")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1167113817]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_glpr6")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1527712195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3359599, 0)
+spot_range = 7.34
+spot_angle = 68.94

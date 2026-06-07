@@ -16,15 +16,15 @@
 sky_material = SubResource("ProceduralSkyMaterial_2l77h")
 
 [sub_resource type="Environment" id="Environment_nqdth"]
+background_mode = 1
+background_color = Color(0.04206708, 0.050593533, 0.07543815, 1)
 sky = SubResource("Sky_f3sb7")
-ambient_light_source = 3
+tonemap_mode = 2
 sdfgi_enabled = true
-sdfgi_read_sky_light = false
+sdfgi_use_occlusion = true
 glow_enabled = true
 fog_enabled = true
 volumetric_fog_enabled = true
-volumetric_fog_emission = Color(0.03184488, 0.0332592, 0.04335182, 1)
-volumetric_fog_detail_spread = 6.0
 
 [node name="main_game" type="Node3D" unique_id=979090175]
 script = ExtResource("1_ipu61")
@@ -36,7 +36,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2083611, 0)
 
 [node name="Moose" parent="." unique_id=273658079 node_paths=PackedStringArray("player") instance=ExtResource("3_d2op2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40.073)
-visible = false
 player = NodePath("../character")
 
 [node name="pause_menu" parent="." unique_id=593908728 instance=ExtResource("4_pausemenu")]

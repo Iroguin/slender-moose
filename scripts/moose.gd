@@ -30,6 +30,7 @@ func moose_charge(where: Vector3):
 	where = Vector3(where.x, 0, where.z)
 	charge_tween.set_trans(Tween.TRANS_CUBIC)
 	charge_tween.set_ease(Tween.EASE_IN)
+	%Sprite3D.play("Run")
 	charge_tween.tween_property(self, "global_position", where, charge_time)
 	charge_tween.tween_property(%Sprite3D, "modulate", Color.TRANSPARENT, 0.5)
 	await charge_tween.finished
@@ -55,6 +56,7 @@ func _on_moose_charge_timer_timeout() -> void:
 	show()
 	%MooseSound.play()
 	%Sprite3D.modulate = Color.WHITE
+	%Sprite3D.play("Idle")
 	await get_tree().create_timer(2).timeout
 	var charge_distance := global_position.distance_to(player.global_position)
 	var charge_dir := global_position.direction_to(player.global_position)

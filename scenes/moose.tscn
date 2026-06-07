@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://w3uugctlb27g"]
 
 [ext_resource type="Script" uid="uid://bfdwaaikivqic" path="res://scripts/moose.gd" id="1_selvl"]
-[ext_resource type="Texture2D" uid="uid://dh3fvnu0svxt5" path="res://assets/icon.svg" id="2_selvl"]
+[ext_resource type="Texture2D" uid="uid://5yylruie8w36" path="res://assets/sprites/1moose.png" id="2_xvvif"]
+[ext_resource type="Texture2D" uid="uid://b1xopahwj7oo0" path="res://assets/sprites/2mooser.png" id="3_3jxxq"]
 [ext_resource type="AudioStream" uid="uid://crqbvs008a8wt" path="res://sounds/moose-01.ogg" id="3_8ax05"]
 [ext_resource type="AudioStream" uid="uid://bi387sohiocqk" path="res://sounds/moose-02.ogg" id="4_4smvx"]
+[ext_resource type="Texture2D" uid="uid://drvwjcud2rbi4" path="res://assets/sprites/3mooser.png" id="4_d3def"]
 [ext_resource type="AudioStream" uid="uid://j5wgjhp685mo" path="res://sounds/moose-11.ogg" id="5_7qvcw"]
+[ext_resource type="Texture2D" uid="uid://cabl48lre2sfj" path="res://assets/sprites/4mooser.png" id="5_vblwa"]
+[ext_resource type="Texture2D" uid="uid://cxqaxpebg6qql" path="res://assets/sprites/5mooser.png" id="6_p8vj3"]
 [ext_resource type="AudioStream" uid="uid://cmaj47fyvsamn" path="res://sounds/moose-12.ogg" id="6_q0yq5"]
+[ext_resource type="Texture2D" uid="uid://bvshl0k25drpo" path="res://assets/sprites/6mooser.png" id="7_6nb40"]
 [ext_resource type="AudioStream" uid="uid://kkxosthewnxo" path="res://sounds/moose-13.ogg" id="7_as1kx"]
 [ext_resource type="AudioStream" uid="uid://cbtjrpn37idb4" path="res://sounds/moose-14.ogg" id="8_xvvif"]
 [ext_resource type="AudioStream" uid="uid://dsgrx513ovmtc" path="res://sounds/moose-03.ogg" id="9_3jxxq"]
@@ -16,6 +21,40 @@
 [ext_resource type="AudioStream" uid="uid://dqx4o6xmc6f2w" path="res://sounds/moose-08.ogg" id="14_l16xu"]
 [ext_resource type="AudioStream" uid="uid://drca87m8xhdoc" path="res://sounds/moose-09.ogg" id="15_yvmbc"]
 [ext_resource type="AudioStream" uid="uid://cwbb8wgapoj53" path="res://sounds/moose-10.ogg" id="16_20wtp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l16xu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xvvif")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xvvif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3jxxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_d3def")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vblwa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_p8vj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6nb40")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 12.0
+}]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8ax05"]
 height = 1.315
@@ -41,13 +80,17 @@ stream_13/stream = ExtResource("8_xvvif")
 script = ExtResource("1_selvl")
 charge_time = 2.0
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1574550632]
+[node name="Sprite3D" type="AnimatedSprite3D" parent="." unique_id=1180405986]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+pixel_size = 0.001
 billboard = 2
 shaded = true
 alpha_cut = 1
-texture = ExtResource("2_selvl")
+sprite_frames = SubResource("SpriteFrames_l16xu")
+animation = &"Run"
+autoplay = "Idle"
+frame_progress = 0.9062356
 
 [node name="MooseChargeTimer" type="Timer" parent="." unique_id=1420594953]
 unique_name_in_owner = true

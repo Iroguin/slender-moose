@@ -126,6 +126,7 @@ shape = SubResource("CylinderShape3D_t6mo5")
 mesh = SubResource("CapsuleMesh_t6mo5")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1490395505]
+visible = false
 light_color = Color(0.9696974, 0.69255304, 0.63697296, 1)
 light_volumetric_fog_energy = 16.0
 omni_range = 29.95
@@ -161,6 +162,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2446613, -1.5676572)
 visible = false
 pixel_size = 0.0011
 billboard = 1
+shaded = true
+alpha_cut = 1
 texture = ExtResource("2_5f3yb")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
