@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dagucwp3qumhf" path="res://scenes/world.tscn" id="1_72e8q"]
 [ext_resource type="Script" uid="uid://boytpgxbbv07m" path="res://scripts/main_game.gd" id="1_ipu61"]
+[ext_resource type="PackedScene" uid="uid://dix3qreqdngm3" path="res://scenes/traffic_path.tscn" id="2_5cypo"]
 [ext_resource type="PackedScene" uid="uid://bd0l84mli7t7b" path="res://scenes/character.tscn" id="2_d2op2"]
 [ext_resource type="PackedScene" uid="uid://w3uugctlb27g" path="res://scenes/moose.tscn" id="3_d2op2"]
 [ext_resource type="PackedScene" uid="uid://xalnhj5r5t8" path="res://scenes/pause_menu.tscn" id="4_pausemenu"]
@@ -55,4 +56,10 @@ trunk_data = ExtResource("9_trunkdata")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1627003706]
 environment = SubResource("Environment_nqdth")
 
+[node name="TrafficPath" parent="." unique_id=156396461 instance=ExtResource("2_5cypo")]
+car_count = 2
+minspeed = 15.0
+maxspeed = 25.0
+
 [connection signal="hit_player" from="Moose" to="." method="_on_moose_hit_player"]
+[connection signal="hit_player" from="TrafficPath" to="." method="_on_moose_hit_player"]
